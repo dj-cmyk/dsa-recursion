@@ -15,20 +15,14 @@ function product(nums) {
 /** longest: return the length of the longest word in an array of words. */
 // longest(["hello", "hi", "hola"])  // 5
 
-function longest(words) {
-  let maxWordLength = 0
-  for (let word of words) {
-    if (word.length > maxWordLength) {
-      maxWordLength = word.length
-    }
-  }
-  return maxWordLength;
+function longest(words, idx = 0, maxWordLength = 0) {
+  // base case
+  if (idx === words.length) return maxWordLength;
+  // normal case
+    maxWordLength = Math.max(words[idx].length, maxWordLength);
+    return longest(words, idx + 1, maxWordLength);
 }
-// function longest(words, idx = 0, longestSoFar = 0) {
-//   if (idx === words.length) return longestSoFar;
-//   longestSoFar = Math.max(words[idx].length, longestSoFar);
-//   return longest(words, idx + 1, longestSoFar);
-// }
+
 
 
 
